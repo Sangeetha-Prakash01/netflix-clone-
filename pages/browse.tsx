@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import dynamic from 'next/dynamic';
-import React, { useContext } from 'react';
+import { useRouter } from 'next/router';
+import React, { useContext, useEffect } from 'react';
 
 import { ModalContext } from '../context/ModalContext';
 import styles from '../styles/Browse.module.scss';
@@ -13,6 +14,15 @@ const Banner = dynamic(import('../components/Banner'));
 
 export default function Browse(): React.ReactElement {
   const { isModal } = useContext(ModalContext);
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      router.push('/');
+    }
+  }, []);
+
   return (
     <>
       {isModal && <Modal />}
