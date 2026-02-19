@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next dev",
+    "build": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next build",
+    "start": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -30,6 +30,7 @@
     "@types/pg": "^8.16.0",
     "@types/react": "17.0.14",
     "@types/react-dom": "^17.0.9",
+    "cross-env": "^10.1.0",
     "eslint": "7.31.0",
     "eslint-config-next": "11.0.1",
     "prettier": "^2.3.2",
